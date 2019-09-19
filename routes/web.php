@@ -15,28 +15,31 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', 'HomeController@index');
+
 // index of all cosplays
 // INDEX
-Route::get('/gallery', 'GalleryController@index');
+Route::get('/cosplay', 'CosplayController@index');
+
+
+// CREATE
+Route::get('/cosplay/create', 'CosplayController@create');
 
 // shows specific cosplay
 // {} indicates a route parameter
 // SHOW
-Route::get('/gallery/{cosplay}', 'GalleryController@show');
-
-// CREATE
-Route::get('/gallery/create', 'GalleryController@create');
+Route::get('/cosplay/{cosplay}', 'CosplayController@show'); 
 
 // STORE
-Route::post('/gallery', 'GalleryController@store');
+Route::post('/cosplay', 'CosplayController@store');
 
 // EDIT
-Route::get('/gallery/{cosplay}/edit', 'GalleryController@edit');
+Route::get('/cosplay/{cosplay}/edit', 'CosplayController@edit');
 
 // UPDATE
-Route::put('/gallery/{cosplay}', 'GalleryController@update');
+Route::put('/cosplay/{cosplay}', 'CosplayController@update');
 
 // DESTROY
-Route::delete('/gallery/{cosplay}/edit', 'GalleryController@destroy');
+Route::delete('/cosplay/{cosplay}/edit', 'CosplayController@destroy');
 
 //Route::get('/shop', 'ShopController@buyItem');
