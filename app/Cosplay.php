@@ -10,7 +10,8 @@ class Cosplay extends Model
         'image',
         'name',
         'description',
-        'price'
+        'price',
+        'user_id'
     ];
 
     public function components()

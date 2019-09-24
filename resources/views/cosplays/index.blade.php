@@ -1,4 +1,4 @@
-@extends('master')
+@extends('layouts.master')
 
 @section('title')
     <title>Gallery</title>
@@ -20,7 +20,8 @@
     <div class="col-3">
         <div class="card" style="margin-bottom: 20px">
             <a href="/cosplay/{{ $cosplay->id }}">
-                <div style="background-image: {{url('images/'.$cosplay->filename)}}" class="cos-card-img"></div>
+                <div style="background-image: url('/images/{{$cosplay->image}}')" class="cos-card-img"></div>
+
             </a>
             <div class="card-body">
                 <h5 class="card-title">{{ $cosplay->name }}</h5>
@@ -30,7 +31,9 @@
         </div>
     </div>
     @endforeach
+    @if(auth()->check())
     <div class="col-3">
         <a href="/cosplay/create" class="btn btn-primary">+ Add Cosplay</a>
     </div>
+    @endif
 @endsection

@@ -4,13 +4,20 @@
     "\\app",
     "\\app\\Http",
     "\\app\\Http\\Controllers",
-    "\\database",
-    "\\database\\seeds",
+    "\\app\\Http\\Controllers\\Auth",
     "\\resources",
     "\\resources\\views",
+    "\\resources\\views\\auth",
     "\\resources\\views\\cosplays",
-    "\\routes"
+    "\\resources\\views\\layouts",
+    "\\vendor",
+    "\\vendor\\laravel",
+    "\\vendor\\laravel\\framework",
+    "\\vendor\\laravel\\framework\\src",
+    "\\vendor\\laravel\\framework\\src\\Illuminate",
+    "\\vendor\\laravel\\framework\\src\\Illuminate\\Support",
+    "\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades"
   ],
-  "SelectedNode": "\\.env",
+  "SelectedNode": "\\resources\\views\\cosplays\\create.blade.php",
   "PreviewInSolutionExplorer": false
 }

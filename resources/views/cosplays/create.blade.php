@@ -1,4 +1,4 @@
-@extends('master')
+@extends('layouts.master')
 
 @section('title')
     <title>Gallery</title>
@@ -25,24 +25,27 @@
         </div>
         @endif
 
-        <form method="POST" action="/cosplay">
+        <form method="POST" action="{{ route('cosplay.store') }}"  enctype="multipart/form-data">
             {{csrf_field()}}
                 <div class="form-group">
+                    <input type="hidden" class="form-control" name="user" value="{{Auth::user()->id}}">
+                </div>
+                <div class="form-group">
                     <label for="image">Picture of Cosplay: </label>
-                    <input type="file" class="form-control" id="image" name="image">
+                    <input type="file" class="form-control-file" name="image">
                 </div>
                 <div class="form-group">
                     <label for="name">Character Name: </label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Input character name here...">
+                    <input type="text" class="form-control" name="name" placeholder="Input character name here...">
                 </div>
                 <div class="form-group">
                     <label for="description">Cosplay description: </label>
-                    <textarea class="form-control" id="description" rows="3"
+                    <textarea class="form-control" rows="3"
                         name="description" placeholder="Input the description of your cosplay here..."></textarea>
                 </div>
                 <div class="form-group">
                     <label for="price">Total Price (£): </label>
-                    <input type="text" class="form-control" id="name" name="price" placeholder="Input character name here...">
+                    <input type="text" class="form-control" name="price" placeholder="Input character name here...">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
                 <a href="/cosplay" class="btn btn-primary">Back</a>

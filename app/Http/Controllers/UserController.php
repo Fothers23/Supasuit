@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class UserController extends Controller
 {
@@ -15,26 +16,16 @@ class UserController extends Controller
     {
         //
     }
+    
+    
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function logout()
     {
-        //
-    }
+        auth()->logout();
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        $this->setSuccessMessage('User has been logged out.');
+
+        return redirect()->route('login');
     }
 
     /**
