@@ -20,8 +20,9 @@
             </div>
         @endif
 
-        <form method="PUT" action="/cosplay/{{ $cosplay->id }}">
-            {{csrf_field()}}
+        <form method="post" action="{{ route('cosplay.update', $cosplay->id) }}">
+            @csrf
+            @method('PUT')
                 <div class="form-group">
                     <label for="name">Character Name: </label>
                     <input type="text" class="form-control" id="name" name="name" value="{{ old('name', $cosplay->name) }}">
@@ -29,14 +30,14 @@
                 <div class="form-group">
                     <label for="description">Cosplay description: </label>
                     <textarea class="form-control" id="description" rows="3"
-                        name="description" value="{{ old('description', $cosplay->description) }}"></textarea>
+                        name="description">{{ old('description', $cosplay->description) }}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="price">Total Price (£): </label>
                     <input type="text" class="form-control" id="name" name="price" value="{{ old('price', $cosplay->price) }}">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <a href="/cosplay/{{ $cosplay->id }}" class="btn btn-primary">Back</a>
+                <a href="{{ route('cosplay.show', $cosplay->id) }}" class="btn btn-primary">Back</a>
 	    </form>
     </div>
 @endsection

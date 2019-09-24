@@ -19,10 +19,19 @@
                         <p class="card-text"><span style="color:grey">Posted by: </span>{{ $cosplay->user->name }}</p>
                         @auth()
                             @if (Auth::user()->id == $cosplay->user->id)
-                            <a href="/cosplay/{{ $cosplay->id }}/edit" class="btn btn-primary">Edit</a>
+                            <a href="{{ route('cosplay.edit', $cosplay->id)}}" class="btn btn-primary" style="margin-bottom:20px">Edit</a>
                             @endif
                         @endauth
-                        <a href="/cosplay" class="btn btn-primary">Back</a>
+                        <a href="/cosplay" class="btn btn-primary" style="margin-bottom:20px">Back</a>
+                        @auth()
+                            @if (Auth::user()->id == $cosplay->user->id)
+                                <form action="{{ route('cosplay.destroy', $cosplay->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger" type="submit">Delete</button>
+                                </form>
+                            @endif
+                        @endauth
                     </div>
                 </div>
             </div>

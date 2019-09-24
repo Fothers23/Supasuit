@@ -16,6 +16,11 @@
             background-position: 50% 50%;
         }
     </style>
+    @if(session()->get('success'))
+        <div class="alert alert-success">
+            {{ session()->get('success') }}  
+        </div><br />
+    @endif
     @foreach($cosplays as $cosplay)
     <div class="col-3">
         <div class="card" style="margin-bottom: 20px">
@@ -25,7 +30,6 @@
             </a>
             <div class="card-body">
                 <h5 class="card-title">{{ $cosplay->name }}</h5>
-                
                 <a href="/cosplay/{{ $cosplay->id }}" class="btn btn-primary">Details</a>
             </div>
         </div>

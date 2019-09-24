@@ -55,39 +55,34 @@ class CosplayController extends Controller
         return redirect('/cosplay/create')->with('success', 'Data added'); 
     }
 
-    public function edit(Request $request, Cosplay $cosplay)
+    public function edit($id)
     {
+        $cosplay = Cosplay::findOrFail($id);
         return view('cosplays.edit', compact('cosplay'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Cosplay $cosplay)
     {
-        $cosplay = Cosplay::find($id);
-
-        $this->validate($request, [
-            'name' => 'required',
+        /*
+        $request->validate($request, [
+            'name' => 'required|max:255',
             'description' => 'required',
-            'price' => 'required'
-        ]);
+            'price' => 'required|numeric'
+        ]);*/
 
-        $editedCosplay = [
-            $cosplay->name => $request->get('name'),
-            $cosplay->description => $request->get('description'),
-            $cosplay->price => $request->get('price')            
-        ];
+        $cosplay->update($request->all());
 
-        if($editedCosplay != $cosplay) {
-            $cosplay->save();
-            return redirect('/cosplay/edit/$cosplay->id')->with('success', 'Data updated');
-        }
-
-        return redirect()->back();
+        return redirect()->route('cosplay.index')
+                        ->with('success','Cosplay updated successfully');
         
     }
 
-    public function destroy(Request $request, $id)
+    public function destroy(Cosplay $cosplay)
     {
-    
+        $cosplay->delete();
+  
+        return redirect()->route('cosplay.index')
+                        ->with('success','Cosplay deleted successfully');
     }
 
 
