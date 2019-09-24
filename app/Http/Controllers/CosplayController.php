@@ -33,15 +33,9 @@ class CosplayController extends Controller
             'description' => 'required',
             'price' => 'required|numeric'
         ]);
-
-        $file = $request->file('image');
-        $extension = $file->getClientOriginalExtension();
-        Storage::disk('public')->put($file->getFilename().'.'.$extension,  File::get($file));
-
-        $image = $file->getFilename().'.'.$extension;
         
         $cosplay = new Cosplay([
-            'image' => $image,
+            'image' => $this->storeImage($request),
             'name' => $request->get('name'),
             'description' => $request->get('description'),
             'price' => $request->get('price'),
@@ -63,12 +57,22 @@ class CosplayController extends Controller
     {
         
         $this->validate($request, [
+            'image' => 'required',
             'name' => 'required|max:255',
             'description' => 'required',
             'price' => 'required|numeric'
         ]);
 
-        $cosplay->update($request->all());
+        if($request->hasFile('image'))
+        {
+            $cosplay->image = $this->storeImage($request);
+        }
+
+        $cosplay->name = $request->name;
+        $cosplay->description = $request->description;
+        $cosplay->price = $request->price;
+
+        $cosplay->update();
 
         return redirect()->route('cosplay.index')
                         ->with('success','Cosplay updated successfully');
@@ -83,5 +87,13 @@ class CosplayController extends Controller
                         ->with('success','Cosplay deleted successfully');
     }
 
+    public function storeImage(Request $request)
+    {
+        $file = $request->file('image');
+        $extension = $file->getClientOriginalExtension();
+        Storage::disk('public')->put($file->getFilename().'.'.$extension,  File::get($file));
+
+        return $image = $file->getFilename().'.'.$extension;
+    }
 
 }
