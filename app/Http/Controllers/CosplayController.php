@@ -9,12 +9,14 @@ use App\Cosplay;
 
 class CosplayController extends Controller
 {
+    // Display all cosplays in the cosplay database
     public function index(Request $request)
     {
         $cosplays = Cosplay::all(); // Retrieves all Cosplay instances from the database
         return view('cosplays.index', compact('cosplays'));
     }
 
+    // Display details of a particular cosplay
     public function show(Request $request, Cosplay $cosplay)
     {
         return view('cosplays.show', compact('cosplay'));
@@ -25,6 +27,7 @@ class CosplayController extends Controller
         return view('cosplays.create');
     }
 
+    // Save new cosplay in cosplay database
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -53,6 +56,7 @@ class CosplayController extends Controller
         return view('cosplays.edit', compact('cosplay'));
     }
 
+    // Update row in cosplay database
     public function update(Request $request, Cosplay $cosplay)
     {
         
@@ -79,6 +83,7 @@ class CosplayController extends Controller
         
     }
 
+    // Remove cosplay from database
     public function destroy(Cosplay $cosplay)
     {
         $cosplay->delete();
@@ -87,6 +92,7 @@ class CosplayController extends Controller
                         ->with('success','Cosplay deleted successfully');
     }
 
+    // Format and store image
     public function storeImage(Request $request)
     {
         $file = $request->file('image');

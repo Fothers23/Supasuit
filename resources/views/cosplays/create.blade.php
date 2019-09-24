@@ -5,7 +5,9 @@
 @endsection
 
 @section('header')
-    <h1>Add Cosplay to the Gallery</h1>  
+    <div style="margin-bottom:10px">
+        <h1>Add Cosplay to the Gallery</h1>
+    </div>
 @endsection
 
 @section('content')

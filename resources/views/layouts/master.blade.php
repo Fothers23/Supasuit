@@ -28,7 +28,7 @@
 					<ul class="navbar-nav mr-auto">
                         @auth()
                             <li class="nav-item">
-                                <a class="nav-link" href="#">{{ auth()->user()->name }}</a>
+                                <a class="nav-link" href="{{ route('profile', auth()->user()->id) }}">{{ auth()->user()->name }}</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('logout') }}">Log out</a>
@@ -48,18 +48,19 @@
 		</nav>
 
 		<br>
-
+               
 		<div class="container">
 			<div class="row"> 
-				<div class="col-12">
-					@yield('header')
-                    <br>
-                    @yield('success')
-				</div>
+			    @yield('header')
+                <br>
+                @yield('success')
 			</div>
             <div class="row"> 
 				@yield('content')
 			</div>
+            <div class="row justify-content-center">
+                @yield('pages')
+            </div>
         <div>
 			
     </body>

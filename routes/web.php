@@ -11,13 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Home
+Route::get('/home', 'HomeController@home')->name('home');
+Route::get('/discussion', 'HomeController@discussion')->name('discussion');
+Route::get('/upcoming', 'HomeController@upcoming')->name('upcoming');
+Route::get('/tips', 'HomeController@tips')->name('tips');
 
-//Cosplay/Gallery
+
+
+//Cosplays
+
 // index of all cosplays
 // INDEX
 Route::get('/cosplay', 'CosplayController@index')->name('cosplay.index');
@@ -47,14 +51,14 @@ Route::delete('/cosplay/{cosplay}', 'CosplayController@destroy')->name('cosplay.
 
 
 //Users
-//Route::get('/profile', 'UserController@showProfile')->name('Profile');
+
 Route::get('/logout', 'UserController@logout')->name('logout');
 
 //REGISTER & LOGIN
 Auth::routes();
 
 // SHOW
-Route::get('/user/{user}', 'UserController@show'); 
+Route::get('/user/{user}', 'UserController@show')->name('profile'); 
 
 // EDIT
 Route::get('/user/{user}/edit', 'UserController@edit');
