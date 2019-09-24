@@ -54,6 +54,7 @@
 				<div class="col-12">
 					@yield('header')
                     <br>
+                    @yield('success')
 				</div>
 			</div>
             <div class="row"> 

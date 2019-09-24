@@ -29,9 +29,9 @@ class CosplayController extends Controller
     {
         $this->validate($request, [
             'image' => 'required',
-            'name' => 'required',
+            'name' => 'required|max:255',
             'description' => 'required',
-            'price' => 'required'
+            'price' => 'required|numeric'
         ]);
 
         $file = $request->file('image');
@@ -39,17 +39,15 @@ class CosplayController extends Controller
         Storage::disk('public')->put($file->getFilename().'.'.$extension,  File::get($file));
 
         $image = $file->getFilename().'.'.$extension;
-
+        
         $cosplay = new Cosplay([
             'image' => $image,
             'name' => $request->get('name'),
             'description' => $request->get('description'),
             'price' => $request->get('price'),
-            
+            'user_id' => $request->get('user')
         ]);
-        $currentUser = $request->get('user');
-
-        $cosplay->user()->id = $currentUser;
+        
         $cosplay->save();
 
         return redirect('/cosplay/create')->with('success', 'Data added'); 
@@ -63,12 +61,12 @@ class CosplayController extends Controller
 
     public function update(Request $request, Cosplay $cosplay)
     {
-        /*
-        $request->validate($request, [
+        
+        $this->validate($request, [
             'name' => 'required|max:255',
             'description' => 'required',
             'price' => 'required|numeric'
-        ]);*/
+        ]);
 
         $cosplay->update($request->all());
 

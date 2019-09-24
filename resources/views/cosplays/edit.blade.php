@@ -20,9 +20,13 @@
             </div>
         @endif
 
-        <form method="post" action="{{ route('cosplay.update', $cosplay->id) }}">
+        <form method="post" action="{{ route('cosplay.update', $cosplay->id) }}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
+                <div class="form-group">
+                    <label for="image">Picture of Cosplay: </label>
+                    <input type="file" class="form-control-file" name="image"  value="{{ old('image', $cosplay->image) }}">
+                </div>
                 <div class="form-group">
                     <label for="name">Character Name: </label>
                     <input type="text" class="form-control" id="name" name="name" value="{{ old('name', $cosplay->name) }}">
