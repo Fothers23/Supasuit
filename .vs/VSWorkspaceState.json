@@ -9,15 +9,8 @@
     "\\resources\\views",
     "\\resources\\views\\auth",
     "\\resources\\views\\cosplays",
-    "\\resources\\views\\layouts",
-    "\\vendor",
-    "\\vendor\\laravel",
-    "\\vendor\\laravel\\framework",
-    "\\vendor\\laravel\\framework\\src",
-    "\\vendor\\laravel\\framework\\src\\Illuminate",
-    "\\vendor\\laravel\\framework\\src\\Illuminate\\Support",
-    "\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades"
+    "\\resources\\views\\home"
   ],
-  "SelectedNode": "\\resources\\views\\cosplays\\create.blade.php",
+  "SelectedNode": "\\resources\\views\\cosplays\\edit.blade.php",
   "PreviewInSolutionExplorer": false
 }

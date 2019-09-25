@@ -10,6 +10,7 @@ class Cosplay extends Model
         'image',
         'name',
         'description',
+        'category',
         'price',
         'user_id'
     ];

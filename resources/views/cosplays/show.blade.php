@@ -16,6 +16,7 @@
                         <h3 class="card-title">{{ $cosplay->name }}</h3>
                         <p class="card-text"><span style="color:grey">Description: </span>{{ $cosplay->description }}</p>
                         <p class="card-text"><span style="color:grey">Price: </span>£{{ $cosplay->price }}</p>
+                        <p class="card-text"><span style="color:grey">Category: </span>{{ $cosplay->category }}</p>
                         <p class="card-text"><span style="color:grey">Posted by: </span>{{ $cosplay->user->name }}</p>
                         @auth()
                             @if (Auth::user()->id == $cosplay->user->id)

@@ -28,7 +28,7 @@
         @endif
 
         <form method="POST" action="{{ route('cosplay.store') }}"  enctype="multipart/form-data">
-            {{csrf_field()}}
+            {{csrf_field()}} <!-- cross-site forgery request -->
                 <div class="form-group">
                     <input type="hidden" class="form-control" name="user" value="{{Auth::user()->id}}">
                 </div>
@@ -44,6 +44,29 @@
                     <label for="description">Cosplay description: </label>
                     <textarea class="form-control" rows="3"
                         name="description" placeholder="Input the description of your cosplay here..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="name">Fandom category: </label>
+                    <select class="form-control" name="category">
+                        <option value="">Select the fandom your cosplay belongs to here...</option>
+                        <option value="Anime">Anime</option>
+                        <option value="Cartoons">Cartoons</option>
+                        <option value="DC">DC</option>
+                        <option value="Disney">Disney</option>
+                        <option value="Doctor Who">Doctor Who</option>
+                        <option value="Games">Games</option>
+                        <option value="Game of Thrones">Game of Thrones</option>
+                        <option value="Harry Potter">Harry Potter</option>
+                        <option value="Horror">Horror</option>
+                        <option value="Hunger Games">Hunger Games</option>
+                        <option value="Lord of the Rings/Hobbit">Lord of the Rings/Hobbit</option>
+                        <option value="MARVEL">MARVEL</option>
+                        <option value="Other">Other</option>
+                        <option value="Sherlock">Sherlock</option>
+                        <option value="Star Trek">Star Trek</option>
+                        <option value="Star Wars">Star Wars</option>
+                        <option value="Supernatural">Supernatural</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="price">Total Price (£): </label>

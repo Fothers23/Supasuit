@@ -20,6 +20,7 @@ class CreateComponentsTable extends Migration
             $table->string('type');
             $table->decimal('price', 10, 2);
             $table->string('shop');
+            $table->integer('cosplay_id');
         });
     }
 

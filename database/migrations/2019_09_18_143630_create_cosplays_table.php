@@ -20,6 +20,7 @@ class CreateCosplaysTable extends Migration
             $table->string('image',200);
             $table->text('description');
             $table->decimal('price', 10, 2);
+            $table->integer('user_id');
         });
     }
 

@@ -34,6 +34,7 @@ class CosplayController extends Controller
             'image' => 'required',
             'name' => 'required|max:255',
             'description' => 'required',
+            'category' => 'required',
             'price' => 'required|numeric'
         ]);
         
@@ -41,6 +42,7 @@ class CosplayController extends Controller
             'image' => $this->storeImage($request),
             'name' => $request->get('name'),
             'description' => $request->get('description'),
+            'category' => $request->get('category'),
             'price' => $request->get('price'),
             'user_id' => $request->get('user')
         ]);
@@ -64,6 +66,7 @@ class CosplayController extends Controller
             'image' => 'required',
             'name' => 'required|max:255',
             'description' => 'required',
+            'category' => 'required',
             'price' => 'required|numeric'
         ]);
 
@@ -74,6 +77,7 @@ class CosplayController extends Controller
 
         $cosplay->name = $request->name;
         $cosplay->description = $request->description;
+        $cosplay->category = $request->category;
         $cosplay->price = $request->price;
 
         $cosplay->update();

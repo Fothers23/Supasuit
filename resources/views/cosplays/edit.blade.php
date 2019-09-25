@@ -39,6 +39,29 @@
                         name="description">{{ old('description', $cosplay->description) }}</textarea>
                 </div>
                 <div class="form-group">
+                    <label for="name">Fandom category: </label>
+                    <select class="form-control" name="category">
+                        <option value="{{ old('category', $cosplay->category) }}">{{ old('category', $cosplay->category) }}</option>
+                        <option value="Anime">Anime</option>
+                        <option value="Cartoons">Cartoons</option>
+                        <option value="DC">DC</option>
+                        <option value="Disney">Disney</option>
+                        <option value="Doctor Who">Doctor Who</option>
+                        <option value="Games">Games</option>
+                        <option value="Game of Thrones">Game of Thrones</option>
+                        <option value="Harry Potter">Harry Potter</option>
+                        <option value="Horror">Horror</option>
+                        <option value="Hunger Games">Hunger Games</option>
+                        <option value="Lord of the Rings/Hobbit">Lord of the Rings/Hobbit</option>
+                        <option value="MARVEL">MARVEL</option>
+                        <option value="Other">Other</option>
+                        <option value="Sherlock">Sherlock</option>
+                        <option value="Star Trek">Star Trek</option>
+                        <option value="Star Wars">Star Wars</option>
+                        <option value="Supernatural">Supernatural</option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label for="price">Total Price (£): </label>
                     <input type="text" class="form-control" id="name" name="price" value="{{ old('price', $cosplay->price) }}">
                 </div>
