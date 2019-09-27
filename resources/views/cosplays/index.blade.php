@@ -2,12 +2,17 @@
 
 @section('title')
     <title>Gallery</title>
+    
 @endsection
 
 @section('header')
-    <div style="margin-bottom:10px">
+    <div style="margin-bottom:20px">
         <h1>Gallery</h1>
     </div>
+@endsection
+
+@section('filtered_content')
+    @include('cosplays.nav')
 @endsection
 
 @section('success')
@@ -19,16 +24,13 @@
 @endsection
 
 @section('content')
-    <style>
-        .cos-card-img {
-            background-size: cover;
-            padding-top: 120%;
-            background-position: 50% 50%;
-        }
-    </style>
- 
+    @if(auth()->check())
+        <div class="col-12 col-md-4 col-lg-3">
+            <a href="/cosplay/create" class="btn btn-primary add-button"><h1>+</h1><p>Add Cosplay</p></a>
+        </div>
+    @endif
     @foreach($cosplays as $cosplay)
-    <div class="col-3">
+    <div class="col-12 col-md-4 col-lg-3">
         <div class="card" style="margin-bottom: 20px">
             <a href="/cosplay/{{ $cosplay->id }}">
                 <div style="background-image: url('/images/{{$cosplay->image}}')" class="cos-card-img"></div>
@@ -41,11 +43,9 @@
         </div>
     </div>
     @endforeach
-    @if(auth()->check())
-    <div class="col-3">
-        <a href="/cosplay/create" class="btn btn-primary">+ Add Cosplay</a>
-    </div>
-    @endif
+
+    
+
 @endsection
 
 @section('pages')

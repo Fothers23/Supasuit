@@ -12,7 +12,63 @@ class CosplayController extends Controller
     // Display all cosplays in the cosplay database
     public function index(Request $request)
     {
-        $cosplays = Cosplay::all(); // Retrieves all Cosplay instances from the database
+        $category = \Request::segment(1);
+        switch ($category) {
+            case "anime":
+                $cosplays = DB::table('cosplays')->where('category','Anime')->get();
+                break;
+            case "cartoons":
+                $cosplays = Cosplay::all()->where('category','=','Cartoons');
+                break;
+            case "dc":
+                $cosplays = Cosplay::all()->where('category','=','DC');
+                break;
+            case "disney":
+                $cosplays = Cosplay::all()->where('category','=','Disney');
+                break;
+            case "dr_who":
+                $cosplays = Cosplay::all()->where('category','=','Doctor Who');
+                break;
+            case "games":
+                $cosplays = Cosplay::all()->where('category','=','Games');
+                break;
+            case "game_of_thrones":
+                $cosplays = Cosplay::all()->where('category','=','Game of Thrones');
+                break;
+            case "harry_potter":
+                $cosplays = Cosplay::all()->where('category','=','Harry Potter');
+                break;
+            case "horror":
+                $cosplays = Cosplay::all()->where('category','=','Horror');
+                break;
+            case "hunger_games":
+                $cosplays = Cosplay::all()->where('category','=','Hunger Games');
+                break;
+            case "lotr":
+                $cosplays = Cosplay::all()->where('category','=','Lord of the Rings/Hobbit');
+                break;
+            case "marvel":
+                $cosplays = Cosplay::all()->where('category','=','MARVEL');
+                break;
+            case "other":
+                $cosplays = Cosplay::all()->where('category','=','Other');
+                break;
+            case "sherlock":
+                $cosplays = Cosplay::all()->where('category','=','Sherlock');
+                break;
+            case "star_trek":
+                $cosplays = Cosplay::all()->where('category','=','Star Trek');
+                break;
+            case "star_wars":
+                $cosplays = Cosplay::all()->where('category','=', 'Star Wars');
+                break;
+            case "supernatural":
+                $cosplays = Cosplay::all()->where('category','=','Supernatural');
+                break;
+            default:
+                $cosplays = Cosplay::all();
+        }
+         // Retrieves all Cosplay instances from the database
         return view('cosplays.index', compact('cosplays'));
     }
 

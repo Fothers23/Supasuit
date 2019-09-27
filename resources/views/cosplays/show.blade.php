@@ -18,21 +18,20 @@
                         <p class="card-text"><span style="color:grey">Price: </span>£{{ $cosplay->price }}</p>
                         <p class="card-text"><span style="color:grey">Category: </span>{{ $cosplay->category }}</p>
                         <p class="card-text"><span style="color:grey">Posted by: </span>{{ $cosplay->user->name }}</p>
-                        @auth()
-                            @if (Auth::user()->id == $cosplay->user->id)
-                            <a href="{{ route('cosplay.edit', $cosplay->id)}}" class="btn btn-primary" style="margin-bottom:20px">Edit</a>
-                            @endif
-                        @endauth
-                        <a href="/cosplay" class="btn btn-primary" style="margin-bottom:20px">Back</a>
-                        @auth()
-                            @if (Auth::user()->id == $cosplay->user->id)
+                    
+                        <div class="row">
+                            @auth()
+                                @if (Auth::user()->id == $cosplay->user->id)
+                                <a href="{{ route('cosplay.edit', $cosplay->id)}}" class="btn btn-primary" style="margin-bottom:20px">Edit</a>
                                 <form action="{{ route('cosplay.destroy', $cosplay->id) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-danger" type="submit">Delete</button>
-                                </form>
-                            @endif
-                        @endauth
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger" type="submit">Delete</button>
+                                    </form>
+                                @endif
+                            @endauth
+                            <a href="/cosplay" class="btn btn-primary" style="margin-bottom:20px">Back</a>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -68,6 +68,7 @@
                         <option value="Supernatural">Supernatural</option>
                     </select>
                 </div>
+                <!-- TODO: Add Component form -->
                 <div class="form-group">
                     <label for="price">Total Price (£): </label>
                     <input type="text" class="form-control" name="price" placeholder="Input character name here...">
