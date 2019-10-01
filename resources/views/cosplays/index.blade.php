@@ -1,13 +1,21 @@
 @extends('layouts.master')
-
+<link rel="stylesheet" href="/css/styles.css">
 @section('title')
     <title>Gallery</title>
     
 @endsection
 
 @section('header')
-    <div style="margin-bottom:20px">
+    <div class="col-3" style="margin-bottom:20px">
         <h1>Gallery</h1>
+    </div>
+    <div class="col-9">
+    <form class="form-inline">
+        <div class="form-group">
+            <input class="form-control" type="search" name="q">
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
     </div>
 @endsection
 
@@ -23,6 +31,12 @@
     @endif
 @endsection
 
+@section('searchResults')
+    @if ($searchTerm && $searched != null)
+        <h3>{{$searched->count()}} results matching {{$searchTerm}} . . .</h3>
+    @endif
+@endsection
+
 @section('content')
     @if(auth()->check())
         <div class="col-12 col-md-4 col-lg-3">
@@ -32,13 +46,13 @@
     @foreach($cosplays as $cosplay)
     <div class="col-12 col-md-4 col-lg-3">
         <div class="card" style="margin-bottom: 20px">
-            <a href="/cosplay/{{ $cosplay->id }}">
+            <a href="/cosplay/show/{{ $cosplay->id }}">
                 <div style="background-image: url('/images/{{$cosplay->image}}')" class="cos-card-img"></div>
 
             </a>
             <div class="card-body">
                 <h5 class="card-title">{{ $cosplay->name }}</h5>
-                <a href="/cosplay/{{ $cosplay->id }}" class="btn btn-primary">Details</a>
+                <a href="/cosplay/show/{{ $cosplay->id }}" class="btn btn-primary">Details</a>
             </div>
         </div>
     </div>

@@ -30,7 +30,7 @@
                                     </form>
                                 @endif
                             @endauth
-                            <a href="/cosplay" class="btn btn-primary" style="margin-bottom:20px">Back</a>
+                            <a href="{{route('cosplay.index','all')}}" class="btn btn-primary" style="margin-bottom:20px">Back</a>
                         </div>
                     </div>
                 </div>

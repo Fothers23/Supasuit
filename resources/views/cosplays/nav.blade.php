@@ -1,56 +1,56 @@
 <ul class="nav nav-tabs">
     <li class="nav-item">
-        <a class="{{ Request::is('cosplay/all') ? 'nav-link active' : 'nav-link' }}" href="{{route('cosplay.index')}}">All</a>
+        <a class="nav-link @if (Request::is('cosplay/all')) active @endif" href="{{route('cosplay.index', 'all')}}">All</a>
     </li>
     <li class="nav-item">
-        <a class="{{ Request::is('cosplay/anime') ? 'nav-link active' : 'nav-link' }}" href="{{route('cosplay.anime')}}">Anime</a>
+        <a class="nav-link @if (Request::is('cosplay/anime')) active @endif" href="{{route('cosplay.index', 'anime')}}">Anime</a>
     </li>
     <li class="nav-item">
-        <a class="{{ Request::is('cosplay/cartoons') ? 'nav-link active' : 'nav-link' }}" href="{{route('cosplay.cartoons')}}">Cartoons</a>
+        <a class="nav-link @if (Request::is('cosplay/cartoons')) active @endif" href="{{route('cosplay.index', 'cartoons')}}">Cartoons</a>
     </li>
     <li class="nav-item">
-        <a class="{{ Request::is('cosplay/dc') ? 'nav-link active' : 'nav-link' }}" href="{{route('cosplay.dc')}}">DC</a>
+        <a class="nav-link @if (Request::is('cosplay/dc')) active @endif" href="{{route('cosplay.index', 'dc')}}">DC</a>
     </li>
     <li class="nav-item">
-        <a class="{{ Request::is('cosplay/disney') ? 'nav-link active' : 'nav-link' }}" href="{{route('cosplay.disney')}}">Disney</a>
+        <a class="nav-link @if (Request::is('cosplay/disney')) active @endif" href="{{route('cosplay.index', 'disney')}}">Disney</a>
     </li>
     <li class="nav-item">
-        <a class="{{ Request::is('cosplay/dr_who') ? 'nav-link active' : 'nav-link' }}" href="{{route('cosplay.dr_who')}}">Doctor Who</a>
+        <a class="nav-link @if (Request::is('cosplay/doctor who')) active @endif" href="{{route('cosplay.index', 'doctor who')}}">Doctor Who</a>
     </li>
     <li class="nav-item">
-        <a class="{{ Request::is('cosplay/games') ? 'nav-link active' : 'nav-link' }}" href="{{route('cosplay.games')}}">Games</a>
+        <a class="nav-link @if (Request::is('cosplay/games')) active @endif" href="{{route('cosplay.index', 'games')}}">Games</a>
     </li>
     <li class="nav-item">
-        <a class="{{ Request::is('cosplay/game_of_thrones') ? 'nav-link active' : 'nav-link' }}" href="{{route('cosplay.game_of_thrones')}}">Game of Thrones</a>
+        <a class="nav-link @if (Request::is('cosplay/game of thrones')) active @endif" href="{{route('cosplay.index', 'game of thrones')}}">Game of Thrones</a>
     </li>
     <li class="nav-item">
-        <a class="{{ Request::is('cosplay/harry_potter') ? 'nav-link active' : 'nav-link' }}" href="{{route('cosplay.harry_potter')}}">Harry Potter</a>
+        <a class="nav-link @if (Request::is('cosplay/harry potter')) active @endif" href="{{route('cosplay.index', 'harry potter')}}">Harry Potter</a>
     </li>
     <li class="nav-item">
-        <a class="{{ Request::is('cosplay/horror') ? 'nav-link active' : 'nav-link' }}" href="{{route('cosplay.horror')}}">Horror</a>
+        <a class="nav-link @if (Request::is('cosplay/horror')) active @endif" href="{{route('cosplay.index', 'horror')}}">Horror</a>
     </li>
     <li class="nav-item">
-        <a class="{{ Request::is('cosplay/hunger_games') ? 'nav-link active' : 'nav-link' }}" href="{{route('cosplay.hunger_games')}}">Hunger Games</a>
+        <a class="nav-link @if (Request::is('cosplay/hunger games')) active @endif" href="{{route('cosplay.index', 'hunger games')}}">Hunger Games</a>
     </li>
     <li class="nav-item">
-        <a class="{{ Request::is('cosplay/lotr') ? 'nav-link active' : 'nav-link' }}" href="{{route('cosplay.lotr')}}">Lord of the Rings/Hobbit</a>
+        <a class="nav-link @if (Request::is('cosplay/lord of the rings')) active @endif" href="{{route('cosplay.index','lord of the rings')}}">Lord of the Rings/Hobbit</a>
     </li>
     <li class="nav-item">
-        <a class="{{ Request::is('cosplay/marvel') ? 'nav-link active' : 'nav-link' }}" href="{{route('cosplay.marvel')}}">MARVEL</a>
+        <a class="nav-link @if (Request::is('cosplay/marvel')) active @endif" href="{{route('cosplay.index','marvel')}}">MARVEL</a>
     </li>
     <li class="nav-item">
-        <a class="{{ Request::is('cosplay/other') ? 'nav-link active' : 'nav-link' }}" href="{{route('cosplay.other')}}">Other</a>
+        <a class="nav-link @if (Request::is('cosplay/other')) active @endif" href="{{route('cosplay.index', 'other')}}">Other</a>
     </li>
     <li class="nav-item">
-        <a class="{{ Request::is('cosplay/sherlock') ? 'nav-link active' : 'nav-link' }}" href="{{route('cosplay.sherlock')}}">Sherlock</a>
+        <a class="nav-link @if (Request::is('cosplay/sherlock')) active @endif" href="{{route('cosplay.index','sherlock')}}">Sherlock</a>
     </li>
     <li class="nav-item">
-        <a class="{{ Request::is('cosplay/star_trek') ? 'nav-link active' : 'nav-link' }}" href="{{route('cosplay.star_trek')}}">Star Trek</a>
+        <a class="nav-link @if (Request::is('cosplay/star trek')) active @endif" href="{{route('cosplay.index','star trek')}}">Star Trek</a>
     </li>
     <li class="nav-item">
-        <a class="{{ Request::is('cosplay/star_wars') ? 'nav-link active' : 'nav-link' }}" href="{{route('cosplay.star_wars')}}">Star Wars</a>
+        <a class="nav-link @if (Request::is('cosplay/star wars')) active @endif" href="{{route('cosplay.index','star wars')}}">Star Wars</a>
     </li>
     <li class="nav-item">
-        <a class="{{ Request::is('cosplay/supernatural') ? 'nav-link active' : 'nav-link' }}" href="{{route('cosplay.supernatural')}}">Supernatural</a>
+        <a class="nav-link @if (Request::is('cosplay/supernatural')) active @endif" href="{{route('cosplay.index', 'supernatural')}}">Supernatural</a>
     </li>
 </ul>

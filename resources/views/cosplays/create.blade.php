@@ -49,32 +49,33 @@
                     <label for="name">Fandom category: </label>
                     <select class="form-control" name="category">
                         <option value="">Select the fandom your cosplay belongs to here...</option>
-                        <option value="Anime">Anime</option>
-                        <option value="Cartoons">Cartoons</option>
-                        <option value="DC">DC</option>
-                        <option value="Disney">Disney</option>
-                        <option value="Doctor Who">Doctor Who</option>
-                        <option value="Games">Games</option>
-                        <option value="Game of Thrones">Game of Thrones</option>
-                        <option value="Harry Potter">Harry Potter</option>
-                        <option value="Horror">Horror</option>
-                        <option value="Hunger Games">Hunger Games</option>
-                        <option value="Lord of the Rings/Hobbit">Lord of the Rings/Hobbit</option>
-                        <option value="MARVEL">MARVEL</option>
-                        <option value="Other">Other</option>
-                        <option value="Sherlock">Sherlock</option>
-                        <option value="Star Trek">Star Trek</option>
-                        <option value="Star Wars">Star Wars</option>
-                        <option value="Supernatural">Supernatural</option>
+                        <option value="anime">Anime</option>
+                        <option value="cartoons">Cartoons</option>
+                        <option value="dc">DC</option>
+                        <option value="disney">Disney</option>
+                        <option value="doctor who">Doctor Who</option>
+                        <option value="games">Games</option>
+                        <option value="game of thrones">Game of Thrones</option>
+                        <option value="harry potter">Harry Potter</option>
+                        <option value="horror">Horror</option>
+                        <option value="hunger games">Hunger Games</option>
+                        <option value="lord of the rings">Lord of the Rings/Hobbit</option>
+                        <option value="marvel">MARVEL</option>
+                        <option value="other">Other</option>
+                        <option value="sherlock">Sherlock</option>
+                        <option value="star trek">Star Trek</option>
+                        <option value="star wars">Star Wars</option>
+                        <option value="supernatural">Supernatural</option>
                     </select>
                 </div>
                 <!-- TODO: Add Component form -->
+
                 <div class="form-group">
                     <label for="price">Total Price (£): </label>
                     <input type="text" class="form-control" name="price" placeholder="Input character name here...">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <a href="/cosplay" class="btn btn-primary">Back</a>
+                <a href="{{route('cosplay.index','all')}}" class="btn btn-primary">Back</a>
 	    </form>
     </div>
 @endsection

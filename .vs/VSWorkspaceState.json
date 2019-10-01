@@ -9,7 +9,7 @@
     "\\public\\css",
     "\\resources",
     "\\resources\\views",
-    "\\resources\\views\\auth",
+    "\\resources\\views\\cosplays",
     "\\resources\\views\\home"
   ],
   "SelectedNode": "\\resources\\views\\cosplays\\edit.blade.php",

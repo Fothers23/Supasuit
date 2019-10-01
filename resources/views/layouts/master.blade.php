@@ -7,7 +7,6 @@
         @yield('title')
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="/css/styles.css">
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -21,7 +20,7 @@
 						<a class="nav-link" href="{{ route('home') }}">Home</a>
 					</li>
 					<li class="{{ Request::is('cosplay*') ? 'nav-link active' : 'nav-link' }}">
-						<a class="nav-link" href="{{ route('cosplay.index') }}">Gallery</a>
+						<a class="nav-link" href="{{ route('cosplay.index', 'all') }}">Gallery</a>
 					</li>
 				</ul>
 				<span class="navbar-text">
@@ -58,6 +57,9 @@
 			</div>
             <div class="row">
                 @yield('success')
+			</div>
+            <div class="row"> 
+			    @yield('searchResults')
 			</div>
             <div class="row"> 
 				@yield('content')
