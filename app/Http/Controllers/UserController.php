@@ -5,21 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use App\Cosplay;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-    
-    
-
     public function logout()
     {
         auth()->logout();
@@ -29,12 +18,6 @@ class UserController extends Controller
         return redirect()->route('login');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show()
     {
         $user = Auth::user();
@@ -45,19 +28,13 @@ class UserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\User
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, User $user)
     {
         $this->validate($request, [
-            'name' => 'required|string|max:255',
-            'fb_link' => 'URL|string|max:255',
-            'twit_link' => 'starts_with:@|string|max:255',
-            'insta_link' => 'starts_with:@|string|max:255',
-            'snap_link' => 'string|max:255',
-            'tube_link' => 'URL|string|max:255',
-            'web_link' => 'URL|string|max:255'
+            'name' => 'required|string|max:255'
         ]);
 
         $user->name = $request->name;

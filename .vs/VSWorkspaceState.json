@@ -5,12 +5,11 @@
     "\\app\\Http",
     "\\app\\Http\\Controllers",
     "\\app\\Http\\Controllers\\Auth",
-    "\\public",
-    "\\public\\css",
+    "\\bootstrap",
     "\\resources",
     "\\resources\\views",
-    "\\resources\\views\\components"
+    "\\resources\\views\\home"
   ],
-  "SelectedNode": "\\app\\Http\\Controllers\\ComponentController.php",
+  "SelectedNode": "\\app\\Convention.php",
   "PreviewInSolutionExplorer": false
 }

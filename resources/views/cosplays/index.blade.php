@@ -32,8 +32,8 @@
 @endsection
 
 @section('searchResults')
-    @if ($searchTerm && $searched != null)
-        <h3>{{$searched->count()}} results matching {{$searchTerm}} . . .</h3>
+    @if ($searchTerm && $searched && $category != null)
+        <h3>{{$searched->count()}} results matching {{$searchTerm}} in {{$category}} . . .</h3>
     @endif
 @endsection
 

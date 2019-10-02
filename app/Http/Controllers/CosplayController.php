@@ -19,8 +19,10 @@ class CosplayController extends Controller
         {
             $query->where('category', $category);
         }
+
         $searched = null;
         $searchTerm = null;
+
         if ($searchTerm = $request->query('q'))
         {
             $searched = $query->where('name', 'LIKE', "%{$searchTerm}%");
@@ -29,7 +31,7 @@ class CosplayController extends Controller
         $cosplays = $query->paginate(11);
 
         return view('cosplays.index', compact('cosplays'))->with('searchTerm', $searchTerm)
-                    ->with('searched', $searched);
+                    ->with('searched', $searched)->with('category', $category);
     }
 
     // Display details of a particular cosplay
@@ -107,7 +109,7 @@ class CosplayController extends Controller
     public function destroy(Cosplay $cosplay)
     {
         $cosplay->delete();
-  
+        
         return redirect()->route('cosplay.index', 'all')
                         ->with('success','Cosplay deleted successfully');
     }

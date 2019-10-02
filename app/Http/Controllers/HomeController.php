@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Article;
+use App\Convention;
 
 class HomeController extends Controller
 {
@@ -23,17 +25,23 @@ class HomeController extends Controller
      */
     public function home()
     {
-        return view('home.home');
+        return view('home.main');
     }
 
     public function discussion()
     {
-        return view('home.discussion');
+        $articles = Article::all();
+        return view('home.discussion', compact('articles'));
     }
 
     public function upcoming()
     {
-        return view('home.upcoming');
+        $welshCons = Convention::all()->where('country', '==', 'Wales');
+        $engCons = Convention::all()->where('country', '==', 'England');
+        $scotCons = Convention::all()->where('country', '==', 'Scotland');
+        $irishCons = Convention::all()->where('country', '==', 'Ireland');
+
+        return view('home.upcoming', compact('welshCons', 'scotCons'), compact('engCons', 'irishCons'));
     }
 
     public function tips()
