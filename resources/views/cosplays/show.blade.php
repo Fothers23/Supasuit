@@ -28,7 +28,7 @@
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-danger" type="submit">Delete</button>
-                                    </form>
+                                </form>
                                 @endif
                             @endauth
                             <a href="{{route('cosplay.index','all')}}" class="btn btn-primary" style="margin-bottom:20px">Back</a>

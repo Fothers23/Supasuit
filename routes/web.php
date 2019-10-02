@@ -65,13 +65,10 @@ Auth::routes();
 // SHOW
 Route::get('/user/{user}', 'UserController@show')->name('profile'); 
 
-// EDIT
-Route::get('/user/{user}/edit', 'UserController@edit');
-
 // UPDATE
-Route::put('/user/{user}', 'UserController@update');
+Route::put('/user/{user}', 'UserController@update')->name('user.update');
 
 // DESTROY
-Route::delete('/user/{user}', 'UserController@destroy');
+Route::delete('/user/{user}', 'UserController@destroy')->name('user.destroy');
 
 

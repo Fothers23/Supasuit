@@ -26,7 +26,7 @@ class CosplayController extends Controller
             $searched = $query->where('name', 'LIKE', "%{$searchTerm}%");
         }
 
-        $cosplays = $query->paginate(12);
+        $cosplays = $query->paginate(11);
 
         return view('cosplays.index', compact('cosplays'))->with('searchTerm', $searchTerm)
                     ->with('searched', $searched);
