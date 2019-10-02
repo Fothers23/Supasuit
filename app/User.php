@@ -49,4 +49,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Cosplay::class);
     }
+
+    public static function boot() {
+        parent::boot();
+        self::deleting(function($user) { // before delete() method call this
+             $user->cosplays()->each(function($cosplay) {
+                $cosplay->delete(); //direct deletion
+             });
+             // do the rest of the cleanup...
+        });
+    }
 }
