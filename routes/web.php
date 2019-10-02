@@ -20,10 +20,15 @@ Route::get('/home/tips', 'HomeController@tips')->name('tips');
 
 
 
+//Components
+Route::get('/component/create', 'ComponentController@create')->name('component.create');
+
+
+
 //Cosplays
 
 // CREATE
-Route::get('/cosplay/create', 'CosplayController@create');
+Route::get('/cosplay/create', 'CosplayController@create')->name('cosplay.create');
 
 // index of all cosplays
 // INDEX

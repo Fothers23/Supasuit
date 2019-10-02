@@ -68,11 +68,13 @@
                         <option value="supernatural">Supernatural</option>
                     </select>
                 </div>
+
                 <!-- TODO: Add Component form -->
+                <a href="{{ route('component.create') }}" class="btn btn-primary">Add component</a>
 
                 <div class="form-group">
                     <label for="price">Total Price (£): </label>
-                    <input type="text" class="form-control" name="price" placeholder="Input character name here...">
+                    <input type="text" class="form-control" name="price" placeholder="Input total price of cosplay here...">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
                 <a href="{{route('cosplay.index','all')}}" class="btn btn-primary">Back</a>

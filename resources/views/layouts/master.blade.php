@@ -10,34 +10,34 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-			<a class="navbar-brand" href="{{ route('home') }}">SUPASUIT</a>
+			<a class="navbar-brand" href="{{ route('home') }}"><img src="/supasuit_white.png" height="32px" width="120px"></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarText">
 				<ul class="navbar-nav mr-auto">
-					<li class="{{ Request::is('home*') ? 'nav-link active' : 'nav-link' }}">
+					<li class="nav-link @if (Request::is('home*')) active @endif">
 						<a class="nav-link" href="{{ route('home') }}">Home</a>
 					</li>
-					<li class="{{ Request::is('cosplay*') ? 'nav-link active' : 'nav-link' }}">
+					<li class="nav-link @if ( Request::is('cosplay*')) active @endif">
 						<a class="nav-link" href="{{ route('cosplay.index', 'all') }}">Gallery</a>
 					</li>
 				</ul>
 				<span class="navbar-text">
 					<ul class="navbar-nav mr-auto">
                         @auth()
-                            <li class="{{ Request::is('user*') ? 'nav-link active' : 'nav-link' }}">
+                            <li class="nav-link @if ( Request::is('user*')) active @endif">
                                 <a class="nav-link" href="{{ route('profile', auth()->user()->id) }}">{{ auth()->user()->name }}</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-link">
                                 <a class="nav-link" href="{{ route('logout') }}">Log out</a>
                             </li>
                         @endauth
                         @guest()
-					        <li class="{{ Request::is('register') ? 'nav-link active' : 'nav-link' }}">
+					        <li class="nav-link @if ( Request::is('register')) active @endif">
 						        <a class="nav-link" href="{{ route('register') }}">Register</a>
 					        </li>
-					        <li class="{{ Request::is('login') ? 'nav-link active' : 'nav-link' }}">
+					        <li class="nav-link @if ( Request::is('login')) active @endif">
 						        <a class="nav-link" href="{{ route('login') }}">Log in</a>
 					        </li>
                         @endguest

@@ -22,10 +22,6 @@
             </div>
         @endif
 
-        <div class="col-3">
-            <img src="/images/{{$cosplay->image}}" alt="{{ $cosplay->name }}">
-        </div>
-
         <form method="post" action="{{ route('cosplay.update', $cosplay->id) }}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
@@ -72,5 +68,8 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
                 <a href="{{ route('cosplay.show', $cosplay->id) }}" class="btn btn-primary">Back</a>
 	    </form>
+    </div>
+    <div class="col-4">
+            <img src="/images/{{$cosplay->image}}" alt="{{ $cosplay->name }}" height="330px" width="250px">
     </div>
 @endsection

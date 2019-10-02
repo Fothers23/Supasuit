@@ -14,10 +14,11 @@
                 <div class="col-8">
                     <div class="card-body">
                         <h3 class="card-title">{{ $cosplay->name }}</h3>
-                        <p class="card-text"><span style="color:grey">Description: </span>{{ $cosplay->description }}</p>
-                        <p class="card-text"><span style="color:grey">Price: </span>£{{ $cosplay->price }}</p>
-                        <p class="card-text"><span style="color:grey">Category: </span>{{ $cosplay->category }}</p>
-                        <p class="card-text"><span style="color:grey">Posted by: </span>{{ $cosplay->user->name }}</p>
+                        <p class="card-text"><span style="color:grey">Description: </span>{{ $cosplay->description }}<br>
+                        <span style="color:grey">Price: </span>£{{ $cosplay->price }}<br>
+                        <span style="color:grey">Category: </span>{{ $cosplay->category }}<br>
+                        <span style="color:grey">Posted by: </span>{{ $cosplay->user->name }}</p>
+                        <small class="form-text text-muted" style="text-align:right"><span style="color:grey">Posted on: </span>{{ $cosplay->created_at }}</small>
                     
                         <div class="row">
                             @auth()

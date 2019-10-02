@@ -9,9 +9,8 @@
     "\\public\\css",
     "\\resources",
     "\\resources\\views",
-    "\\resources\\views\\cosplays",
-    "\\resources\\views\\home"
+    "\\resources\\views\\components"
   ],
-  "SelectedNode": "\\resources\\views\\cosplays\\edit.blade.php",
+  "SelectedNode": "\\app\\Http\\Controllers\\ComponentController.php",
   "PreviewInSolutionExplorer": false
 }
