@@ -56,7 +56,6 @@ class User extends Authenticatable
              $user->cosplays()->each(function($cosplay) {
                 $cosplay->delete(); //direct deletion
              });
-             // do the rest of the cleanup...
         });
     }
 }
