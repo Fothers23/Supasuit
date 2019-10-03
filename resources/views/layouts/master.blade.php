@@ -27,7 +27,7 @@
 					<ul class="navbar-nav mr-auto">
                         @auth()
                             <li class="nav-link @if ( Request::is('user*')) active @endif">
-                                <a class="nav-link" href="{{ route('profile', auth()->user()->id) }}">{{ auth()->user()->name }}</a>
+                                <a class="nav-link" href="{{ route('profile', auth()->user()->id) }}" title="Profile">{{ auth()->user()->name }}</a>
                             </li>
                             <li class="nav-link">
                                 <a class="nav-link" href="{{ route('logout') }}">Log out</a>

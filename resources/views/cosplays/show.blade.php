@@ -41,6 +41,7 @@
                 </div>
             </div>
         </div>
+        
         <div class="row">
             <div class="container" style="border:ridge; padding:20px; margin-bottom:20px">
             <h1>Shop the look</h1>
@@ -53,6 +54,19 @@
                     <p>Name: {{ $component->name }}</p>
                     <p>Price: £{{ $component->price }}</p>
                     <p>Link to the shop's website: <a href="{{ $component->shop }}">{{ $component->shop }}</a></p>
+
+                    <div class="row">
+                        @auth()
+                            @if (Auth::user()->id == $cosplay->user->id)
+                                <a href="{{ route('component.edit', $component->id)}}" class="btn btn-primary">Edit component</a>
+                                <form action="{{ route('component.destroy', $component->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <a><button class="btn btn-danger" type="submit">Delete component</button></a>
+                                </form>
+                            @endif
+                        @endauth
+                    </div>
                 </div>
                 <hr>
             @endforeach

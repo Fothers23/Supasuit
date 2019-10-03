@@ -81,7 +81,6 @@ class CosplayController extends Controller
     // Update row in cosplay database
     public function update(Request $request, Cosplay $cosplay)
     {
-        
         $this->validate($request, [
             'name' => 'required|max:255',
             'description' => 'required',

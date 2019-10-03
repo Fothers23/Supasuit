@@ -57,6 +57,12 @@ Route::get('/cosplay/{cosplay}/add-component', 'ComponentController@create')->na
 
 Route::post('/cosplay/{cosplay}', 'ComponentController@store')->name('component.store');
 
+Route::get('/component/{component}/edit', 'ComponentController@edit')->name('component.edit');
+
+Route::put('/component/{component}', 'ComponentController@update')->name('component.update');
+
+Route::delete('/component/{component}', 'ComponentController@destroy')->name('component.destroy');
+
 
 
 

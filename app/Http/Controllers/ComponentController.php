@@ -49,17 +49,6 @@ class ComponentController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -67,19 +56,36 @@ class ComponentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $component = Component::findOrFail($id);
+        return view('components.edit', compact('component'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Component  $component
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Component $component)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'type' => 'required',
+            'price' => 'required|numeric',
+            'shop' => 'required'
+        ]);
+
+        $component->name = $request->name;
+        $component->type = $request->type;
+        $component->price = $request->price;
+        $component->shop = $request->shop;
+        $component->cosplay->id = $request->id;
+
+        $component->update();
+
+        return redirect()->route('cosplay.index', 'all')
+                        ->with('success','Component updated successfully');
     }
 
     /**
@@ -88,8 +94,11 @@ class ComponentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Component $component)
     {
-        //
+        $component->delete();
+        
+        return redirect()->route('cosplay.index', 'all')
+                        ->with('success','Component deleted successfully');
     }
 }

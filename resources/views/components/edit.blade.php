@@ -6,7 +6,7 @@
 
 @section('header')
     <div style="margin-bottom:10px">
-        <h1>Add Component to the Cosplay</h1>
+        <h1>Edit existing cosplay component</h1>
     </div>
 @endsection
 
@@ -27,21 +27,22 @@
         </div>
         @endif
 
-        <form method="POST" action="{{ route('component.store', $cosplay->id) }}">
-            {{csrf_field()}} <!-- cross-site forgery request -->
+        <form method="POST" action="{{ route('component.update', $component->id) }}">
+            @csrf <!-- cross-site forgery request -->
+            @method('PUT')
                 <div class="form-group">
-                    <input type="hidden" class="form-control" name="id" value="{{ $cosplay->id }}">
+                    <input type="hidden" class="form-control" name="id" value="{{ old('cosplay_id', $component->cosplay->name) }}">
                 </div>
 
                 <div class="form-group">
                     <label for="name">Component Name: </label>
-                    <input type="text" class="form-control" name="name" placeholder="Input component name here...">
+                    <input type="text" class="form-control" name="name" value="{{ old('name', $component->name) }}">
                 </div>
 
                 <div class="form-group">
                     <label for="type">Component type: </label>
                     <select class="form-control" name="type">
-                        <option value="">Select the type of component here...</option>
+                        <option value="{{ old('type', $component->type) }}">{{ old('type', $component->type) }}</option>
                         <option value="Wig">Wig</option>
                         <option value="Contact lenses">Contact Lenses</option>
                         <option value="Dress">Dress</option>
@@ -56,14 +57,14 @@
                 </div>
                 <div class="form-group">
                     <label for="price">Price (£): </label>
-                    <input type="text" class="form-control" name="price" placeholder="Input price of component here...">
+                    <input type="text" class="form-control" name="price" value="{{ old('price', $component->price) }}">
                 </div>
                 <div class="form-group">
                     <label for="shop">Shop Link: </label>
-                    <input type="text" class="form-control" name="shop" placeholder="Input shop link here...">
+                    <input type="text" class="form-control" name="shop" value="{{ old('shop', $component->shop) }}">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <a href="{{ route('cosplay.show', $cosplay->id) }}" class="btn btn-primary">Back</a>
+                <a href="{{ route('cosplay.show', $component->cosplay->id) }}" class="btn btn-primary">Back</a>
 	    </form>
     </div>
 @endsection
