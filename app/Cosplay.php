@@ -24,4 +24,13 @@ class Cosplay extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public static function boot() {
+        parent::boot();
+        self::deleting(function($cosplay) { // before delete() method call this
+             $cosplay->components()->each(function($component) {
+                $component->delete(); //direct deletion
+             });
+        });
+    }
 }

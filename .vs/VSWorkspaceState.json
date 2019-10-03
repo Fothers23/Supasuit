@@ -5,11 +5,12 @@
     "\\app\\Http",
     "\\app\\Http\\Controllers",
     "\\app\\Http\\Controllers\\Auth",
-    "\\bootstrap",
+    "\\public",
     "\\resources",
     "\\resources\\views",
+    "\\resources\\views\\cosplays",
     "\\resources\\views\\home"
   ],
-  "SelectedNode": "\\app\\Convention.php",
+  "SelectedNode": "\\resources\\views\\home\\discussion.blade.php",
   "PreviewInSolutionExplorer": false
 }

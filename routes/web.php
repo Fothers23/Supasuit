@@ -20,9 +20,6 @@ Route::get('/home/tips', 'HomeController@tips')->name('tips');
 
 
 
-//Components
-Route::get('/component/create', 'ComponentController@create')->name('component.create');
-
 
 
 //Cosplays
@@ -51,6 +48,14 @@ Route::put('/cosplay/{cosplay}', 'CosplayController@update')->name('cosplay.upda
 // DESTROY
 Route::delete('/cosplay/{cosplay}', 'CosplayController@destroy')->name('cosplay.destroy');
 
+
+
+
+
+//Components
+Route::get('/cosplay/{cosplay}/add-component', 'ComponentController@create')->name('component.create');
+
+Route::post('/cosplay/{cosplay}', 'ComponentController@store')->name('component.store');
 
 
 

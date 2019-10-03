@@ -1,4 +1,6 @@
 @extends('layouts.master')
+<link rel="stylesheet" href="/css/cosplayshow.css">
+
 @section('title')
     <title>Gallery</title>
 @endsection
@@ -23,19 +25,38 @@
                         <div class="row">
                             @auth()
                                 @if (Auth::user()->id == $cosplay->user->id)
-                                <a href="{{ route('cosplay.edit', $cosplay->id)}}" class="btn btn-primary" style="margin-bottom:20px">Edit</a>
-                                <form action="{{ route('cosplay.destroy', $cosplay->id) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="btn btn-danger" type="submit">Delete</button>
-                                </form>
+                                    <a href="{{ route('component.create', $cosplay->id)}}" class="btn btn-primary">Add Cosplay Component</a>
+                                    <a href="{{ route('cosplay.edit', $cosplay->id)}}" class="btn btn-primary">Edit</a>
+
+                                    <form action="{{ route('cosplay.destroy', $cosplay->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <a><button class="btn btn-danger" type="submit">Delete</button></a>
+                                    </form>
                                 @endif
                             @endauth
-                            <a href="{{route('cosplay.index','all')}}" class="btn btn-primary" style="margin-bottom:20px">Back</a>
+                            <a href="{{route('cosplay.index','all')}}" class="btn btn-primary">Back</a>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="row">
+            <div class="container" style="border:ridge; padding:20px; margin-bottom:20px">
+            <h1>Shop the look</h1>
+            <h3>Components of this cosplay</h3>
+            <hr>
+
+            @foreach($cosplay->components as $component)
+                <div style="margin-bottom:20px">
+                    <h5>{{ $component->type }}</h5>
+                    <p>Name: {{ $component->name }}</p>
+                    <p>Price: £{{ $component->price }}</p>
+                    <p>Link to the shop's website: <a href="{{ $component->shop }}">{{ $component->shop }}</a></p>
+                </div>
+                <hr>
+            @endforeach
+        </div>
         </div>
     </div>
     <div class="col-1"></div>

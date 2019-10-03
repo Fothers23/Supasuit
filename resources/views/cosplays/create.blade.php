@@ -69,9 +69,6 @@
                     </select>
                 </div>
 
-                <!-- TODO: Add Component form -->
-                <a href="{{ route('component.create') }}" class="btn btn-primary">Add component</a>
-
                 <div class="form-group">
                     <label for="price">Total Price (£): </label>
                     <input type="text" class="form-control" name="price" placeholder="Input total price of cosplay here...">

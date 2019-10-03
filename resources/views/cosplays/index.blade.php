@@ -52,7 +52,7 @@
             </a>
             <div class="card-body">
                 <h5 class="card-title">{{ $cosplay->name }}</h5>
-                <a href="/cosplay/show/{{ $cosplay->id }}" class="btn btn-primary">Details</a>
+                <a href="{{ route('cosplay.show'), $cosplay->id }}" class="btn btn-primary">Details</a>
             </div>
         </div>
     </div>

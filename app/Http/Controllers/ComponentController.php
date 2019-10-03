@@ -3,27 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Component;
+use App\Cosplay;
 
 class ComponentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request, $id)
     {
-        return view('components.create');
+        $cosplay = Cosplay::findOrFail($id);
+
+        return view('components.create', compact('cosplay'));
     }
 
     /**
@@ -32,9 +26,26 @@ class ComponentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Cosplay $cosplay)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'type' => 'required',
+            'price' => 'required|numeric',
+            'shop' => 'required'
+        ]);
+        
+        $component = new Component([
+            'name' => $request->get('name'),
+            'type' => $request->get('type'),
+            'price' => $request->get('price'),
+            'shop' => $request->get('shop'),
+            'cosplay_id' => $request->get('id')
+        ]);
+        
+        $component->save();
+
+        return redirect()->route('component.create', $cosplay->id)->with('success', 'Data added'); 
     }
 
     /**

@@ -27,25 +27,31 @@
         </div>
         @endif
 
-        <form method="POST" action="{{ route('component.store') }}">
+        <form method="POST" action="{{ route('component.store', $cosplay->id) }}">
             {{csrf_field()}} <!-- cross-site forgery request -->
+                <div class="form-group">
+                    <input type="hidden" class="form-control" name="id" value="{{ $cosplay->id }}">
+                </div>
+
                 <div class="form-group">
                     <label for="name">Component Name: </label>
                     <input type="text" class="form-control" name="name" placeholder="Input component name here...">
                 </div>
+
                 <div class="form-group">
-                    <label for="name">Component type: </label>
+                    <label for="type">Component type: </label>
                     <select class="form-control" name="type">
                         <option value="">Select the type of component here...</option>
-                        <option value="wig">Wig</option>
-                        <option value="contact lenses">Contact Lenses</option>
-                        <option value="dress">Dress</option>
-                        <option value="top">Top</option>
-                        <option value="trousers">Trousers</option>
-                        <option value="shorts">Shorts</option>
-                        <option value="skirt">Skirt</option>
-                        <option value="shoes">Shoes</option>
-                        <option value="other">Other</option>
+                        <option value="Wig">Wig</option>
+                        <option value="Contact lenses">Contact Lenses</option>
+                        <option value="Dress">Dress</option>
+                        <option value="Top">Top</option>
+                        <option value="Trousers">Trousers</option>
+                        <option value="Shorts">Shorts</option>
+                        <option value="Skirt">Skirt</option>
+                        <option value="Shoes">Shoes</option>
+                        <option value="Prop">Prop</option>
+                        <option value="Other">Other</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -57,7 +63,7 @@
                     <input type="text" class="form-control" name="shop" placeholder="Input shop link here...">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <a href="{{route('cosplay.create')}}" class="btn btn-primary">Back</a>
+                <a href="{{ route('cosplay.show', $cosplay->id) }}" class="btn btn-primary">Back</a>
 	    </form>
     </div>
 @endsection

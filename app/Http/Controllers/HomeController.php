@@ -46,6 +46,7 @@ class HomeController extends Controller
 
     public function tips()
     {
+        //https://vocal.media/geeks/cosplay-tips-for-beginners
         return view('home.tips');
     }
 }
