@@ -46,13 +46,13 @@
     @foreach($cosplays as $cosplay)
     <div class="col-12 col-md-4 col-lg-3">
         <div class="card" style="margin-bottom: 20px">
-            <a href="/cosplay/show/{{ $cosplay->id }}">
+            <a href="{{ route('cosplay.show', $cosplay->id) }}">
                 <div style="background-image: url('/images/{{$cosplay->image}}')" class="cos-card-img"></div>
 
             </a>
             <div class="card-body">
                 <h5 class="card-title">{{ $cosplay->name }}</h5>
-                <a href="{{ route('cosplay.show'), $cosplay->id }}" class="btn btn-primary">Details</a>
+                <a href="{{ route('cosplay.show', $cosplay->id) }}" class="btn btn-primary">Details</a>
             </div>
         </div>
     </div>
