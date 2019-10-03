@@ -12,7 +12,7 @@
     <div class="col-9">
     <form class="form-inline">
         <div class="form-group">
-            <input class="form-control" type="search" name="q">
+            <input class="form-control" type="search" name="q" placeholder="Search for a cosplay...">
         </div>
         <button type="submit" class="btn btn-primary">Search</button>
     </form>

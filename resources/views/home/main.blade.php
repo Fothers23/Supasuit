@@ -5,11 +5,11 @@
 @endsection
 
 @section('header')
-    <div class="col-2" style="margin-top:20px">
+    <div class="col-0 col-md-1 col-lg-2" style="margin-top:20px">
         @include('home.nav')
     </div>
     
-    <div class="col-8" style="margin-top:20px">
+    <div class="col-12 col-md-10 col-lg-8" style="margin-top:20px">
         <h1>Home</h1>
         <hr>
 
@@ -24,6 +24,6 @@
             be used to create the outfits for the characters we’ve all grown to love and
             maybe even inspire you to take part.</p>
     </div>
-    <div class="col-2"></div> 
+    <div class="col-0 col-md-1 col-lg-2"></div> 
 @endsection
 
