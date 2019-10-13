@@ -52,21 +52,8 @@
 			<div class="row"> 
 			    @yield('header')
 			</div>
-            <div class="row">
-                @yield('filtered_content')
-			</div>
-            <div class="row">
-                @yield('success')
-			</div>
-            <div class="row"> 
-			    @yield('searchResults')
-			</div>
-            <div class="row"> 
-				@yield('content')
-			</div>
-            <div class="row justify-content-center">
-                @yield('pages')
-            </div>
+
+            @yield('content')
         <div>
 			
     </body>
