@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Cosplay;
+use App\User;
 use App\Component;
 
 class CosplayController extends Controller
@@ -14,8 +15,10 @@ class CosplayController extends Controller
     // Display all cosplays in the cosplay database
     public function index(Request $request, $category)
     {
+        clock()->startEvent('unique-event', "Nathan's test");
         $query = Cosplay::latest();
-
+        clock()->endEvent('unique-event');
+        
         if ($category != "all")
         {
             $query->where('category', $category);
@@ -38,7 +41,7 @@ class CosplayController extends Controller
     // Display details of a particular cosplay
     public function show($id)
     {
-        $cosplay = Cosplay::findOrFail($id);
+        $cosplay = Cosplay::findOrFail($id);   
         return view('cosplays.show', compact('cosplay'));
     }
 

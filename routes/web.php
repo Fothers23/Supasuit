@@ -53,6 +53,8 @@ Route::delete('/cosplay/{cosplay}', 'CosplayController@destroy')->name('cosplay.
 
 
 //Components
+Route::get('/component', 'ComponentController@index')->name('component.index');
+
 Route::get('/cosplay/{cosplay}/add-component', 'ComponentController@create')->name('component.create');
 
 Route::post('/cosplay/{cosplay}', 'ComponentController@store')->name('component.store');
@@ -73,6 +75,8 @@ Route::get('/logout', 'UserController@logout')->name('logout');
 //REGISTER & LOGIN
 Auth::routes();
 
+//Route::get('/user', 'UserController@index')->name('user.index');
+
 // SHOW
 Route::get('/user/{user}', 'UserController@show')->name('profile'); 
 
@@ -81,5 +85,3 @@ Route::put('/user/{user}', 'UserController@update')->name('user.update');
 
 // DESTROY
 Route::delete('/user/{user}', 'UserController@destroy')->name('user.destroy');
-
-

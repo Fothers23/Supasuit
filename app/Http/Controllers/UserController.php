@@ -18,6 +18,13 @@ class UserController extends Controller
         return redirect()->route('login');
     }
 
+    /*
+    public function index()
+    {
+        //$users = User::all();
+        return view ('auth.index');
+    }*/
+
     public function show()
     {
         $user = Auth::user();

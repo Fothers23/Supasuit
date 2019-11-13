@@ -50,7 +50,6 @@
             <div class="card" style="margin-bottom: 20px">
                 <a href="{{ route('cosplay.show', $cosplay->id) }}">
                     <div style="background-image: url('/images/{{$cosplay->image}}')" class="cos-card-img"></div>
-
                 </a>
                 <div class="card-body">
                     <h5 class="card-title">{{ $cosplay->name }}</h5>

@@ -3,14 +3,14 @@
     "",
     "\\app",
     "\\app\\Http",
-    "\\app\\Http\\Controllers",
-    "\\app\\Http\\Controllers\\Auth",
+    "\\database\\factories",
     "\\resources",
     "\\resources\\views",
-    "\\resources\\views\\auth",
     "\\resources\\views\\components",
-    "\\resources\\views\\layouts"
+    "\\resources\\views\\cosplays",
+    "\\resources\\views\\layouts",
+    "\\routes"
   ],
-  "SelectedNode": "\\resources\\views\\layouts\\master.blade.php",
+  "SelectedNode": "\\resources\\views\\cosplays\\index.blade.php",
   "PreviewInSolutionExplorer": false
 }

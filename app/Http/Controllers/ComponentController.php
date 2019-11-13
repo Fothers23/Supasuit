@@ -8,6 +8,15 @@ use App\Cosplay;
 
 class ComponentController extends Controller
 {
+    public function index()
+    {
+        clock()->startEvent('unique-event', "Nathan's test");
+        $components = Component::with('cosplay')->paginate(1);
+        clock()->endEvent('unique-event');
+
+        return view ('components.index', compact('components'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

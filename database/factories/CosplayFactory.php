@@ -25,5 +25,6 @@
             'price' => 50,
             'category' => 'other',
             'user_id' => 2
+
         ];
     });
