@@ -22,9 +22,8 @@
             'created_at' => now(),
 	        'image' => 'noimage.png',
 	        'description' => 'This is a description',
-            'price' => 50,
+            'price' => rand(10, 300),
             'category' => 'other',
-            'user_id' => 2
-
+            'user_id' => rand(629, 639)
         ];
     });

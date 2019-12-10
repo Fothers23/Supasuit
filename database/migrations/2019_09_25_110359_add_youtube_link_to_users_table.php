@@ -14,7 +14,7 @@ class AddYoutubeLinkToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('tube_link');
+            $table->string('tube_link')->nullable();
         });
     }
 

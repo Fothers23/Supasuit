@@ -2,9 +2,8 @@
 
 use Illuminate\Database\Seeder;
 use App\Component;
-use App\Cosplay;
 
-class UsersTableSeeder extends Seeder
+class ComponentsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,8 +12,6 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Component::class, 10)->create()->each(function ($component) {
-            $component->cosplays()->save(factory(Cosplay::class)->make());
-        });
+        factory(Component::class, 10)->create();
     }
 }

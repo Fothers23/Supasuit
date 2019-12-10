@@ -16,15 +16,14 @@
     |
     */
 
-    $factory->define(Cosplay::class, function (Faker $faker) {
+    $factory->define(Component::class, function (Faker $faker) {
         return [
             'name' => $faker->name,
             'created_at' => now(),
-	        'image' => 'noimage.png',
-	        'description' => 'This is a description',
-            'price' => 50,
-            'category' => 'other',
-            'user_id' => 2
+	        'type' => 'Other',
+            'price' => rand(10, 300),
+            'shop' => '#',
+            'cosplay_id' => rand(45, 59)
 
         ];
     });

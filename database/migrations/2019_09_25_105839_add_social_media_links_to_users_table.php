@@ -14,11 +14,11 @@ class AddSocialMediaLinksToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('fb_link');
-            $table->string('twit_link');
-            $table->string('insta_link');
-            $table->string('snap_link');
-            $table->string('web_link');
+            $table->string('fb_link')->nullable();
+            $table->string('twit_link')->nullable();
+            $table->string('insta_link')->nullable();
+            $table->string('snap_link')->nullable();
+            $table->string('web_link')->nullable();
         });
     }
 

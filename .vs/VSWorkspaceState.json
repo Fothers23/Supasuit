@@ -3,7 +3,7 @@
     "",
     "\\app",
     "\\app\\Http",
-    "\\database\\factories",
+    "\\app\\Http\\Controllers",
     "\\resources",
     "\\resources\\views",
     "\\resources\\views\\components",
@@ -11,6 +11,6 @@
     "\\resources\\views\\layouts",
     "\\routes"
   ],
-  "SelectedNode": "\\resources\\views\\cosplays\\index.blade.php",
+  "SelectedNode": "\\resources\\views\\layouts\\master.blade.php",
   "PreviewInSolutionExplorer": false
 }
